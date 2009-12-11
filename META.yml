@@ -1,6 +1,6 @@
 ---
 name: File-Coda
-version: 1.10
+version: 1.91
 author:
   - 'Jim Meyering <jim@meyering.net>'
 abstract: a global destructor to close stdout carefully
@@ -13,7 +13,7 @@ build_requires:
 provides:
   File::Coda:
     file: Coda.pm
-    version: 1.10
+    version: 1.91
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

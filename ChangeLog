@@ -1,5 +1,8 @@
 2009-12-11  Jim Meyering  <meyering@redhat.com>
 
+	Version 1.91
+	* Coda.pm (VERSION): Increment.
+
 	Version 1.10
 	* Coda.pm (VERSION): Increment.
 
