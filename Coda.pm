@@ -18,7 +18,7 @@ use warnings;
 
 # Program name of our caller
 our $ME = $0;
-our $VERSION = '1.9';
+our $VERSION = '1.10';
 
 # Set $? to this value upon failure to close stdout.
 our $Exit_status = 1;

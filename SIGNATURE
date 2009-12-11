@@ -1,0 +1,45 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+SHA1 9c0a589d758deb827d0471dc6acd1faa23c703d7 Build.PL
+SHA1 4ed6a3f3491a4a24521a222b34a8e02ba3de76e1 ChangeLog
+SHA1 c5cf478819c16ab1f0c24561c7f06b87c1eeef3f Coda.pm
+SHA1 e42b68283b14c7728948cc7195a22b955ea283b8 LICENSE
+SHA1 9bbef5268e15e96074fdc1a677fe42c169a8bd93 MANIFEST
+SHA1 9c1d09ba5e8f5a7128a4c01749746b03eee530f3 META.yml
+SHA1 4b166aeb8fe02470640936ad35192e0e1b223bf6 README
+SHA1 2b61d58f6c59f412152438a45b038b9ba7f7ebcf t/01-basic.t
+SHA1 7d4eb2270d1a8235f3bee446a157e9616d97cfe5 t/02-noclobber.t
+SHA1 9df929510a427f8bac5c4c9717182ee7de39db7e t/03-nointerfere.t
+SHA1 8ef79182c36c74a5218b1a21b6fef08c84fd2709 t/98-pod-coverage.t
+SHA1 47ff92edfe4543ad08b9fe52e263ba0935fe4029 t/99-pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iQIcBAEBCAAGBQJLIeseAAoJENd//eG5q5oWNmUQAI+hkiP+ThxsEsqrLlBuJm1L
+DGRMvnNXJ7Ol3RdW40TSxqwyip/MxWHVqeH+2DEONQwNhYrE8zBK9U8BfEKb9XrZ
+v70joLKQfdNgUB4gxOXNhFTtM6hq3/Rzvj52Y1qXU+k96iGSiSumGg9NbHMgNvcg
+Gf26P+zdaPjxZDS2UVdDbxTeJZ7Gt6YPt7Xeqf8sBswtIBKDVeqAx+/pi0ns/L1o
+qFO6hW1CNaFtGZF912PEgAwknoRzFKskKJWeWjEgD+HsrrhsToDZat3FWgKzk7Fp
+3EoEMYH8vZjhkYvSZrYj3skQEhtuUKW69kkW+VXU648LkVTFsfY1KfV62I9IDNr+
+cWwHHgrhFkL/hKlWzFP8bPJu2c3F/1+VHfYENKSbzcrsOEiIdw/G0nkFSLGhZfA6
+79wd74KsZHQgV+VumNCd+SoaX0RXROYbbzQhAIrVdW+U4hy0kPmbIFI1tMDXulPk
+sIfYG50U2ogOcGQN+IqeWnCeoBxGaOtTzMAkOncyC3kA3YD5FmuGivLjr14RzuQC
+DlX5Dk+aRrQq3nWRMtT7myfKOla6y0G1+RZ1Di536AEySFVqzJ8okQeRGlBG2HHC
+PWWEDtC4+pAQ2+0t9zPcuRSlwhP+SRC8hne6at39aAdOzWLhTVLmoCFrm6nbUtHs
+6q7+p+TTh2KZ5zmDkRAk
+=eVDI
+-----END PGP SIGNATURE-----

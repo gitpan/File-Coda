@@ -6,6 +6,8 @@
 
 use Test::More;
 use File::Temp 'tmpnam';
+use Errno;
+use POSIX qw(strerror);
 
 umask 077;
 
@@ -23,7 +25,7 @@ close $script_fh
   or die "$ME: $script_name: write failed: $!\n";
 chmod 500 => $script_name;
 
-my @expect = <DATA>;
+my @expect = ('ME: closing standard output: ' . strerror(&Errno::EBADF) ."\n");
 
 plan tests => 1 + @expect;
 
@@ -57,6 +59,3 @@ while (@expect && defined (my $line = <ERROR>)) {
 close ERROR;
 
 unlink $script_name, $err_output;
-
-__END__
-ME: closing standard output: Bad file descriptor

@@ -4,6 +4,8 @@
 
 use Test::More;
 use File::Temp 'tmpnam';
+use Errno;
+use POSIX qw(strerror);
 
 umask 077;
 
@@ -20,8 +22,11 @@ close $script_fh
   or die "$ME: $script_name: write failed: $!\n";
 chmod 500 => $script_name;
 
-my @expect = <DATA>;
-my $have_dev_full = -e '/dev/full';
+my @expect =
+  ('ME: closing standard output: ' . strerror(&Errno::EBADF) ."\n",
+   'ME: closing standard output: ' . strerror(&Errno::ENOSPC) ."\n");
+
+my $have_dev_full = -w '/dev/full';
 $have_dev_full
   or @expect = grep { !/No space/ } @expect;
 
@@ -50,6 +55,8 @@ while (@expect && defined (my $line = <ERROR>)) {
     my $expect = shift @expect;
     chomp $expect;
     $line =~ s!^.*?:!ME:!;
+    $line =~ s,: &Errno::EBADF$,: EBADF,;
+    $line =~ s,: &Errno::ENOSPC$,: ENOSPC,;
 
     # Generate a description of this test
     my $desc = "stderr line " . ++$i;
@@ -59,7 +66,3 @@ while (@expect && defined (my $line = <ERROR>)) {
 close ERROR;
 
 unlink $script_name, $err_output;
-
-__END__
-ME: closing standard output: Bad file descriptor
-ME: closing standard output: No space left on device

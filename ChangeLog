@@ -1,3 +1,23 @@
+2009-12-11  Jim Meyering  <meyering@redhat.com>
+
+	Version 1.10
+	* Coda.pm (VERSION): Increment.
+
+	tests: accommodate a system with unwritable /dev/full
+	* t/01-basic.t: Test for writability, not just existence of /dev/full.
+
+2009-12-10  Jim Meyering  <meyering@redhat.com>
+
+	tests: work around difference in Solaris' spelling of strerror(EBADF)
+	* t/01-basic.t: Don't hard-code spelling of Linux's strerror(EBADF).
+	* t/02-noclobber.t: Likewise.
+
+2009-12-03  Jim Meyering  <meyering@redhat.com>
+
+	build: sign the tarball
+	* Build.PL: Add sign => 1 option.
+	Remove useless quotes on RHS '0's.
+
 2009-12-01  Jim Meyering  <meyering@redhat.com>
 
 	Version 1.9
