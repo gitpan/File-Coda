@@ -5,9 +5,12 @@
 use Test::More;
 use File::Temp 'tmpnam';
 use Errno;
-use POSIX qw(strerror);
+use POSIX qw(strerror locale_h);
 
 umask 077;
+
+$ENV{LC_ALL} = 'C'; # Make the script we'll exec print diagnostics in English.
+setlocale LC_ALL, 'C' or die "$ME: failed to set locale: $!\n";
 
 my ($script_fh, $script_name) = tmpnam;
 my $err_output = tmpnam;
@@ -15,7 +18,6 @@ my $err_output = tmpnam;
 printf $script_fh <<'-', $^X;
 #!%s -Tw -Iblib/lib
 use File::Coda;
-$ENV{LC_ALL} = 'C'; # Ensure that diagnostics are in English.
 print 'anything';
 -
 close $script_fh

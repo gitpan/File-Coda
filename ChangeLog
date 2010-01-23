@@ -1,3 +1,13 @@
+2010-01-23  Jim Meyering  <meyering@redhat.com>
+
+	Version 1.92
+	* Coda.pm (Version): Increment
+
+	avoid spurious test failure due to LC_MESSAGES != C
+	* t/01-basic.t: Set LC_ALL=C not just in the sample sub-script
+	that we run, but also in each main test script.
+	* t/02-noclobber.t: Likewise.
+
 2009-12-11  Jim Meyering  <meyering@redhat.com>
 
 	Version 1.91
