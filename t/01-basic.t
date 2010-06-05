@@ -32,6 +32,9 @@ my $have_dev_full = -w '/dev/full';
 $have_dev_full
   or @expect = grep { !/No space/ } @expect;
 
+system (': >&-') == 0
+  or plan skip_all => 'you lack a POSIX shell';
+
 plan tests => 1 + @expect;
 
 {

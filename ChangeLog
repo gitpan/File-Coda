@@ -1,3 +1,14 @@
+2010-06-05  Jim Meyering  <meyering@redhat.com>
+
+	Version 1.94
+	* Coda.pm (Version): Increment.
+
+	tests: work around failures when run on Windows
+	* t/01-basic.t: Skip tests if shell does not recognize ">&-".
+	* t/02-noclobber.t: Likewise.
+	* t/03-nointerfere.t: Don't use /dev/null, to accommodate Windows.
+	Instead, redirect to a real file, and verify its contents.
+
 2010-01-23  Jim Meyering  <meyering@redhat.com>
 
 	Version 1.93

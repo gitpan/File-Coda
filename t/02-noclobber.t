@@ -29,6 +29,9 @@ chmod 500 => $script_name;
 
 my @expect = ('ME: closing standard output: ' . strerror(&Errno::EBADF) ."\n");
 
+system (': >&-') == 0
+  or plan skip_all => 'you lack a POSIX shell';
+
 plan tests => 1 + @expect;
 
 {

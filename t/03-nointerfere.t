@@ -25,7 +25,9 @@ close $script_fh
   or die "$ME: $script_name: write failed: $!\n";
 chmod 500 => $script_name;
 
-plan tests => 2;
+my $out = "out-$$";
+
+plan tests => 4;
 
 {
     local %ENV =
@@ -33,7 +35,7 @@ plan tests => 2;
        (map { $_ => $ENV{$_} || 'undef' } qw(HOME PATH LOGNAME USER SHELL)),
       );
 
-    system "$script_name >/dev/null 2> $err_output";
+    system "$script_name > $out 2> $err_output";
 }
 
 my $exit_status = $? >> 8;
@@ -41,3 +43,12 @@ is $exit_status, 0, 'exit code of sample script';
 
 # Expect the err-output file to be empty.
 ok -z $err_output, 'no output to stderr';
+
+my $line;
+ok open (F, '<', $out)
+  && (($line = <F>), 1) && defined $line && $line eq 'anything',
+  "failed to open output file, $out, $!";
+close F;
+ok `cat $out` eq 'anything', 'unexpected stdout';
+
+END { unlink $out; }
